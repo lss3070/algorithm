@@ -15,7 +15,6 @@ function solution(){
         word.splice(word.indexOf(target),1);
         JaeGi(word,target,1);
     }else{
-        ㅊ
         console.log(0);
     }
 
