@@ -1,41 +1,45 @@
 
+// var begin ="hit";
+// var target="zzz";
+// var word=['zzz', 'zyz', 'xzz', 'xyz', 'hyt', 'hyz', 'xiz', 'hiz']
+
 var begin ="hit";
-var target="zzz";
-var word=['zzz', 'zyz', 'xzz', 'xyz', 'hyt', 'hyz', 'xiz', 'hiz']
+var target="cog";
+var word=['hot', 'dot', 'dog', 'lot', 'log', 'cog']
+
+
+// var begin ="hhk";
+// var target="ziz";
+// var word=['hht', 'hih','zih', 'ziz']
 let resultArray=[];
 
 solution();
 
-
-
-
-
 function solution(){
-    if(word.indexOf(target)>0){
-        word.splice(word.indexOf(target),1);
-        JaeGi(word,target,1);
+    if(word.indexOf(target)>=0){
+        // word.splice(word.indexOf(target),1);
+        JaeGi(word,begin,0);
     }else{
-        ㅊ
         console.log(0);
     }
 
-    if(result.length==0)
+    if(resultArray.length==0)
     console.log(resultArray);
 }
 
-function JaeGi(array,tag,n){
-    array.reduce((pre,now)=>{
-        if(Check(begin,tag)){
-            resultArray.push(n);
+function JaeGi(array,value,n){
+    array.forEach((element)=>{
+        if(value===target){
+            resultArray.push(n-1);
             return;
-        }
-        if(Check(now,tag)){
-            n++;
+        }else if(Check(element,value)){
+            n++
             let tempArray =array.slice();
-            tempArray.splice(tempArray.indexOf(now),1);
-            JaeGi(tempArray,now,n);
+            tempArray.splice(tempArray.indexOf(element),1);
+            JaeGi(tempArray,element,n);
         }
-    },[]);
+    })
+
 }
 
 
