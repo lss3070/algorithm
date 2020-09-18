@@ -30,5 +30,6 @@ function solution(genres, plays) {
         if(value.length>1) answer.push(value[0][1],value[1][1]);
         else if(value.length==1) answer.push(value[0][1]);
     })
+    console.log(answer);
     return answer;
 }
