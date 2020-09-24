@@ -57,21 +57,28 @@ function JeaGi(standardNum,nowNum,passbyList,value){
                 }
             });
             passbyList.push(goingList[i]);
-            nowNum=goingList[i];
-            i=goingList.length;
+            nowNum=goingList[i];   
+        }
+        if(passbyList.length==n-1){
+            if(resultlist[0]>value){
+                resultlist[0]=value;
+                resultlist[1]=passbyList;
+            }
+        }else{
+            return JeaGi(standardNum,nowNum,passbyList,value);
         }
     }
     //여기서 passbyList체크를 한다.
 
 
-    if(passbyList.length==n-1){
-        if(resultlist[0]>value){
-            resultlist[0]=value;
-            resultlist[1]=passbyList;
-        }
-    }else{
-        return JeaGi(standardNum,nowNum,passbyList,value);
-    }
+    // if(passbyList.length==n-1){
+    //     if(resultlist[0]>value){
+    //         resultlist[0]=value;
+    //         resultlist[1]=passbyList;
+    //     }
+    // }else{
+    //     return JeaGi(standardNum,nowNum,passbyList,value);
+    // }
     
 }
 

@@ -1,5 +1,5 @@
 
-var jobs= [[0, 3], [1, 9], [2, 6]];
+var jobs= [[1, 9], [1, 4], [1, 5], [1, 7], [1, 3]]	;
 solution();
 function solution(){
     let jobslength=jobs.length;
@@ -9,7 +9,7 @@ jobs.forEach((element)=>{
 })
 //요청시간을 기준으로 오름차순 정렬
 jobs.sort((a,b)=>{
-    return a[0]>b[0]? 1:-1
+    return a[0]-b[0]? 1:-1
 })
 
 let nowrequest = jobs.shift();
