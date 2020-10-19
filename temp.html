@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>test</title>
+        <script>
+        window.addEventListener('DOMContentLoaded',function(){
+            let test=new Test("a","b","c");
+            test.aCall();
+            test.bCall();
+            test.cCall();
+
+        });
+        let Test=function(a,b,c){
+           this.a= a;
+           this.b=b;
+           this.c=c;
+        }
+        Test.prototype.aCall=function(){
+           alert(this.a);
+        }
+        Test.prototype.bCall=function(){
+            alert(this.b);
+        }
+        Test.prototype.cCall=function(){
+            alert(this.c);
+        }
+        
+        </script>
+        <style></style>
+
+    </head>
+    <body>
+        <div>
+            <table>
+                <th></th>
+            </table>
+        </div>
+    </body>
+</html>

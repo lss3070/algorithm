@@ -11,9 +11,17 @@ let input = "5 3 2\n\
 solution();
 
 function solution(){
-    let info = input[0].split(" ");
+    let list = new Array();
+    list[0] = new Array();
+
+    let info = input.shift().split(" ");
     let m = info[0];
     let n = info[1];
     let h = info[2];
+
+    list
+    console.log(list);
+
+
 
 }

@@ -3,15 +3,14 @@
 let participant= ["marina", "josipa", "nikola", "vinko", "filipa"];
 let completion= ["josipa", "filipa", "marina", "nikola"];	
 
-test();
+solution();
 
 
-function test(){
-    i=0;
-    while(true){
-        let temp = completion.shift();  
-        participant.splice(participant.indexOf(temp),1);
-        if(completion.length==0) break;
-    }
-    console.log(participant[0]);
+function solution(){
+
+    completion.forEach(element=>{
+       let index = participant.indexOf(element);
+        participant.splice(index,1);
+    });
+    console.log(participant.join(""));
 }
