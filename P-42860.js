@@ -1,16 +1,37 @@
 
 
-let name="JEROEN";
+let name="JAN";
 solution();
 
 function solution(){
     //65~90
-    let cursor=65;
+
+    let answer=0;
     let namelist= name.split("");
 
-    namelist.forEach(element=>{
-        let custart= Math.abs(cursor-element.charCodeAt());
-        let astart = Math.abs(element.charCodeAt()-cursor)+1;
+    let min =namelist.length-1;
 
+
+    for(let i=0;i<namelist.length;i++){
+        if(namelist[i]!='A'){
+            let next=i+1;
+            while(next<namelist.length&&namelist[i]=='A'){
+                next++
+            }
+            let move =2*i+namelist.length-next;
+            min = move>min?min:move;
+        }
+    }
+
+
+    namelist.forEach(element => {
+        if(element.charCodeAt()>=79){
+            answer+=(91-element.charCodeAt());
+        }else{
+            answer+=(element.charCodeAt()-65);
+        }
     });
+
+    console.log(answer+min);
+    
 }
