@@ -1,6 +1,6 @@
 
 
-let name="JAN";
+let name="BBBAAAB";
 solution();
 
 function solution(){
@@ -11,18 +11,16 @@ function solution(){
 
     let min =namelist.length-1;
 
-
-    for(let i=0;i<namelist.length;i++){
+    for(let i=0;i<=namelist.length;i++){
         if(namelist[i]!='A'){
             let next=i+1;
-            while(next<namelist.length&&namelist[i]=='A'){
+            while(next<namelist.length&&namelist[next]=='A'){
                 next++
             }
-            let move =2*i+namelist.length-next;
+            let move =(2*i)+namelist.length-next;
             min = move>min?min:move;
         }
     }
-
 
     namelist.forEach(element => {
         if(element.charCodeAt()>=79){

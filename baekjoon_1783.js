@@ -4,8 +4,8 @@ let input ="100 50";
 solution();
 
 function solution(){
-    let n = input.split(" ")[0];
-    let m = input.split(" ")[1];
+    let n = parseInt(input.split(" ")[0]);
+    let m = parseInt(input.split(" ")[1]);
     
     if(n==1)
         console.log(1);
@@ -18,6 +18,6 @@ function solution(){
 }
 
 function min(a,b){
-    return a<b?a:b;
+    return a<=b?a:b;
 }
 //https://lipcoder.tistory.com/entry/%EB%B3%91%EB%93%A0-%EB%82%98%EC%9D%B4%ED%8A%B8-%EB%B0%B1%EC%A4%80-1783%EB%B2%88

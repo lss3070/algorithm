@@ -17,10 +17,18 @@ function solution(){
                     let small =resultlist.pop();
                     resultlist.push(big);
                     templist.push(small);
-                }else
-                    break;
+                }else break;
             }
         }
     });
+
+    while(templist.length!=k){
+        templist.push(resultlist.pop());
+    }
+
     console.log(resultlist);
 }
+
+
+
+//나중에 추후 처리하자...
