@@ -26,6 +26,7 @@ function solution(begin, target, words) {
     function JaeGi(array,value,n){
     
     array.forEach((element)=>{
+        //test
 
         
 
