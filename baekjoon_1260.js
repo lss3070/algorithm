@@ -1,10 +1,5 @@
- var input ="4 5 1\n\
-1 2\n\
-1 3\n\
-1 4\n\
-2 4\n\
-3 4\n\
-".split('\n');
+ var input ="1000 1 1000\n\
+ 999 1000".split('\n');
 
 // var input ="3 2 1\n\
 // 2 3\n\

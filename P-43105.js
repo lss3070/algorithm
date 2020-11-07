@@ -24,8 +24,6 @@ function solution(){
         }
     }
     console.log(Math.max.apply(null,[].concat(...valuelist)));
-
-    
 }
 function custommax(a,b){
     return a>b?a:b;
