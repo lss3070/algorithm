@@ -1,6 +1,6 @@
 
 let input="9\n\
-7 3\n\
+10 3\n\
 7\n\
 1 2\n\
 1 3\n\
@@ -10,24 +10,62 @@ let input="9\n\
 4 5\n\
 4 6".split("\n");
 
+// let input ="5\n\
+// 2 5\n\
+// 4\n\
+// 1 2\n\
+// 1 3\n\
+// 4 3\n\
+// 4 5".split('\n');
+
+var dummy=[];
+var max;
+var min;
+var answer;
+
 solution();
 function solution(){
+    let length= input.shift();
+    let values = input.shift().split(" ").map(e=>+e);
+    
+    if(values[0]>values[1]){
+        max = values[0];
+        min =values[1];
+    }else{
+        max = values[1];
+        min = values[0];
+    }
+    dummy.push(min);
 
-    let length= parseInt(input.shift());
-    let values=input.shift().split(" ").map(e=>parseInt(e));
-    let m = input.shift();
+    input.shift();
 
-    let hsMap = new Map();
-    input.forEach(e=>{
-        if(hsMap.get(e.split(" ")[0])==null){
-            hsMap.set(e.split(" ")[0],e.split(" ")[0]);
-        }
-        hsMap.set(e.split(" ")[1],e.split(" ")[0]);
-    });
+    input = input.map(e=>{
+        return e.split(" ").map(e=>+e);
+    })
+    
 
-    let first = values[0];
+    console.log(checkLoop(min,1));
+    // if(answer===undefined)
+    //     console.log(-1);
+    // else console.log(answer);
+}
 
-    while(true){
-        
+function checkLoop(now,count){
+
+  
+    if(now===max){
+        answer=dummy.length-1;
+        return answer;
+    }else{
+        input.forEach(element=>{
+                if(element[0]==now&&!dummy.includes(element[1])){
+                    dummy.push(element[1]);
+                   answer= checkLoop(element[1],count)
+                }
+               if(element[1]==now&&!dummy.includes(element[0])){ 
+                    dummy.push(element[0]);  
+                   answer= checkLoop(element[0],max);
+                }
+          });
     }
 }

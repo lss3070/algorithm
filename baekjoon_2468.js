@@ -20,7 +20,6 @@ function solution(){
     
 
     
-
     for(let c=0;c<100;c++){
         depth=c;
         let boolArray = Array.from(Array(h),()=>new Array(w).fill(false));
