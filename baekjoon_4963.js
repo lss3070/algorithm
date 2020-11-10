@@ -22,19 +22,6 @@ let input="1 1\n\
 1 0 1 0 1\n\
 0 0 0 0 0\n\
 1 0 1 0 1\n\
-5 5\n\
-1 1 1 1 0\n\
-1 0 0 0 0\n\
-1 0 0 0 0\n\
-0 0 0 0 1\n\
-1 1 1 1 1\n\
-5 4\n\
-1 0 1 0 0\n\
-1 0 0 0 0\n\
-1 0 1 0 1\n\
-1 0 0 1 0\n\
-4 1\n\
-1 0 1 1x\n\
 0 0".split("\n");
 
 
@@ -48,12 +35,16 @@ function solution(){
     let check=0;
     input.forEach((e,i)=>{
         if(i==0){
+            //체크리스트
             boolList.push(Array.from(Array(parseInt(e.split(" ")[1])),
             ()=>new Array(parseInt(e.split(" ")[0])).fill(false)));
+
             check+=parseInt(e.split(" ")[1])+1
         }else if(i==check&&i!=0){
+            //체크리스트
             boolList.push(Array.from(Array(parseInt(e.split(" ")[1])),
             ()=>new Array(parseInt(e.split(" ")[0])).fill(false)));
+
             islandList.push(array);
             check+=parseInt(e.split(" ")[1])+1
             array =[];
@@ -61,10 +52,9 @@ function solution(){
             array.push(e.split(" ").map(e=>parseInt(e)));
         }
     });
-    
     islandList.forEach((e,i)=>{
         console.log(checkvalue(e,boolList[i]));
-    })
+    });
 }
 
 function checkvalue(ori,checklist){

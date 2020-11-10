@@ -4,6 +4,8 @@ solution();
 function solution(){
     let result=0;
     let stayTime=0;
+
+    let answer
     list.sort((a,b)=>{
         return a-b;
     })
@@ -12,4 +14,7 @@ function solution(){
         result+=stayTime;
     })
     console.log(result);
+
+
+    
 }

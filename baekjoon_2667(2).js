@@ -10,14 +10,12 @@
 // 0111000".split("\n");
 
 
-let input ="7\n\
-0101100\n\
-0110101\n\
-1110101\n\
-0000111\n\
-0101000\n\
-0111110\n\
-0111000".split("\n");
+let input ="5\n\
+11011\n\
+11011\n\
+00000\n\
+11011\n\
+11011".split("\n");
 
 let length= parseInt(input.shift());
 
@@ -45,7 +43,12 @@ function solution(){
         }
     }
     console.log(count);
-    if(answerlist.length>0) answerlist.forEach(e=> console.log(e));
+
+    
+    if(answerlist.length>0) {
+        answerlist.sort((a,b)=>a-b);
+        answerlist.forEach(e=> console.log(e));
+    }
    
 }
 
