@@ -1,22 +1,24 @@
 
-let input="9\n\
-10 3\n\
-7\n\
-1 2\n\
-1 3\n\
-2 7\n\
-2 8\n\
-2 9\n\
-4 5\n\
-4 6".split("\n");
-
-// let input ="5\n\
-// 2 5\n\
-// 4\n\
+// let input="9\n\
+// 10 3\n\
+// 7\n\
 // 1 2\n\
 // 1 3\n\
-// 4 3\n\
-// 4 5".split('\n');
+// 2 7\n\
+// 2 8\n\
+// 2 9\n\
+// 4 5\n\
+// 4 6".split("\n");
+
+let input ="7\n\
+4 7\n\
+6\n\
+1 2\n\
+1 3\n\
+2 4\n\
+2 5\n\
+2 6\n\
+3 7".split('\n');
 
 var dummy=[];
 var max;
@@ -45,14 +47,14 @@ function solution(){
     
 
     console.log(checkLoop(min,1));
+
+    console.log(answer===undefined?-1:answer);
     // if(answer===undefined)
     //     console.log(-1);
     // else console.log(answer);
 }
 
 function checkLoop(now,count){
-
-  
     if(now===max){
         answer=dummy.length-1;
         return answer;
@@ -60,12 +62,13 @@ function checkLoop(now,count){
         input.forEach(element=>{
                 if(element[0]==now&&!dummy.includes(element[1])){
                     dummy.push(element[1]);
-                   answer= checkLoop(element[1],count)
+                   return checkLoop(element[1],count)
                 }
                if(element[1]==now&&!dummy.includes(element[0])){ 
                     dummy.push(element[0]);  
-                   answer= checkLoop(element[0],max);
+                  return checkLoop(element[0],max);
                 }
           });
     }
+    return answer;
 }
