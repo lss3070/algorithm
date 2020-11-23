@@ -25,5 +25,5 @@ function solution(){
 }
 
 function backtraking(answer,current,temp,m,str){
-    let array = str.split(" ");d
+    let array = str.split(" ");
 }d
