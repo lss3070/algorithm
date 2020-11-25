@@ -1,5 +1,6 @@
 
-let input ="2(45(2)6(3))";
+// let input ="2(45(2)6(3))";
+let input="33(562(71(9)))";
 
 solution();
 function solution(){
@@ -28,44 +29,29 @@ function solution(){
 
     for(let i =0;i<valueArray.length;i++){
         if(valueArray[i]=="("){
-            notnumberArray.push(i);
+            notnumberArray.push(valueArray[i]);
         }else if(valueArray[i]==")"){
-            
-            answer+=JeaGi(numberArray);
-            numberArray=[];
+
+            notnumberArray.pop();
+            let back =numberArray.pop();
+            let front = numberArray.pop();
+
+            let frontArray= front.split("");
+            let length= parseInt(frontArray.pop());
+                let temp="";
+            for(let i=1;i<=length;i++){
+                temp+=back;
+            }
+            frontArray.push(temp);
+
+            if(numberArray.length>notnumberArray.length){
+                numberArray.push(numberArray.pop()+frontArray.join(""));
+            }else{
+                numberArray.push(frontArray.join(""));
+            }
         }else{
             numberArray.push(valueArray[i])
         }
     }
-    console.log(answer.length);
+    console.log(numberArray[0].length);
 }
-
-function JeaGi(numberArray){
-    if(numberArray.length>1){
-        let back=numberArray.pop().toString();
-        let front = numberArray.pop().toString();
-        let frontArray= front.split("");
-
-        let length= parseInt(frontArray.pop());
-        let temp="";
-        for(let i=1;i<=length;i++){
-            temp+=back;
-        }
-       frontArray.push(temp)
-
-        numberArray.push(frontArray.join(''));
-
-       return JeaGi(numberArray);
-    }else{
-        if(numberArray.length==0){
-            return "";
-        }else{
-            return numberArray.pop();
-        }
-    }
-}
-
-// 33(562(71(9)))
-// 33(562(79))
-// 33(527979)
-// 3527979527979527979
