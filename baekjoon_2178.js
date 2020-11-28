@@ -52,7 +52,7 @@ while(queue.length>0){
          }
      }
 }
-
+s
 
     if(queueNext.length>0){
         result = Math.min(result,BFS(queueNext,visitlist,depth+1));
